@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="img" href="C:\xampp\htdocs\knowledgepics\ums\img\bla24.png">
+<script src="jquery.imn.js"></script>
+    <title>About</title>
+
+    <style>
+        nav {
+            position: absolute;
+            top: 30px;
+            right: 200px;
+            word-spacing: 40px;
+            color: rgb(255, 255, 255);
+            font-size: 24px;
+            font-family: monospace;
+            letter-spacing: 7px;
+            cursor: pointer;
+        }
+
+        nav a:hover {
+            color: darkorange;
+            transition: 0.5s;
+
+        }
+
+
+        .profile {
+            width: 400px;
+            height: 420px;
+            top: 300px;
+            left: 30px;
+            position: absolute;
+        }
+
+        .img1 {
+            width: 300px;
+            height: 50px;
+            position: fixed;
+            top: 10px;
+            left: 30px;
+            display: block;
+        }
+
+        .img2 {
+            width: 300px;
+            height: 50px;
+            position: fixed;
+            top: 10px;
+            left: 30px;
+            display: none;
+        }
+
+        .login {
+            position: absolute;
+            width: 120px;
+            height: 35px;
+            font-size: 16px;
+            color: rgb(0, 0, 0);
+            top: 20px;
+            right: 100px;
+            background-color: rgb(25, 255, 4);
+            border-radius: 30px;
+
+        }
+
+        .login:hover {
+            background-color: rgb(255, 106, 0);
+            transition: 0.5s;
+
+        }
+
+        .navba {
+            width: 1366px;
+            height: 85px;
+            background-color: rgb(7, 7, 7);
+            position: fixed;
+            left: 0;
+            top: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        /* Full-width input fields */
+        input[type=text],
+        input[type=password] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        /* Set a style for all buttons */
+        button {
+            background-color: #04AA6D;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button:hover {
+            opacity: 0.8;
+        }
+
+        /* Extra styles for the cancel button */
+        .cancelbtn {
+            width: auto;
+            padding: 10px 18px;
+            background-color: #f44336;
+        }
+
+        /* Center the image and position the close button */
+        .imgcontainer {
+            text-align: center;
+            margin: 24px 0 12px 0;
+            position: relative;
+        }
+
+        img.avatar {
+            width: 40%;
+            border-radius: 50%;
+        }
+
+        .container {
+            padding: 16px;
+        }
+
+        span.psw {
+            float: right;
+            padding-top: 16px;
+        }
+
+        /* The Modal (background) */
+        .modal {
+            display: none;
+            /* Hidden by default */
+            position: fixed;
+            /* Stay in place */
+            z-index: 1;
+            /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%;
+            /* Full width */
+            height: 100%;
+            /* Full height */
+            overflow: auto;
+            /* Enable scroll if needed */
+            background-color: rgb(0, 0, 0);
+            /* Fallback color */
+            background-color: rgba(0, 0, 0, 0.4);
+            /* Black w/ opacity */
+            padding-top: 60px;
+        }
+
+        /* Modal Content/Box */
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto 15% auto;
+            /* 5% from the top, 15% from the bottom and centered */
+            border: 1px solid #888;
+            width: 80%;
+            /* Could be more or less, depending on screen size */
+        }
+
+        /* The Close Button (x) */
+        .close {
+            position: absolute;
+            right: 25px;
+            top: 0;
+            color: #000;
+            font-size: 35px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: red;
+            cursor: pointer;
+        }
+
+        /* Add Zoom Animation */
+        .animate {
+            -webkit-animation: animatezoom 0.6s;
+            animation: animatezoom 0.6s
+        }
+
+        @-webkit-keyframes animatezoom {
+            from {
+                -webkit-transform: scale(0)
+            }
+
+            to {
+                -webkit-transform: scale(1)
+            }
+        }
+
+        @keyframes animatezoom {
+            from {
+                transform: scale(0)
+            }
+
+            to {
+                transform: scale(1)
+            }
+        }
+
+        /* Change styles for span and cancel button on extra small screens */
+        @media screen and (max-width: 300px) {
+            span.psw {
+                display: block;
+                float: none;
+            }
+
+            .cancelbtn {
+                width: 100%;
+            }
+        }
+
+        .head {
+            position: absolute;
+            top: 150px;
+            left: 630px;
+            font-family: monospace;
+            font-size: 30px;
+            letter-spacing: 10px;
+        }
+
+        .me {
+            position: absolute;
+            top: 370px;
+            left: 480px;
+        }
+
+        .ab {
+            position: absolute;
+            color: darkorange;
+            right: 250px;
+
+        }
+
+        .head2 {
+            position: absolute;
+            top: 300px;
+            left: 480px;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            letter-spacing: 2px;
+            font-size: 22px;
+        }
+
+        .head3 {
+            position: absolute;
+            top: 500px;
+            left: 480px;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            letter-spacing: 2px;
+            font-size: 22px;
+        }
+
+        .web {
+            position: absolute;
+            top: 550px;
+            left: 480px;
+        }
+
+        .hm {
+            position: absolute;
+            right: 100px;
+        }
+
+
+        .sidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            right: 0;
+            background-color: rgb(0, 0, 0);
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+            display: none;
+
+        }
+
+
+        .icon11 {
+            position: fixed;
+            top: 50px;
+            right: 10px;
+            color: #000000;
+            display: none;
+
+        }
+
+        .sidenav a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #080808;
+            display: none;
+            transition: 0.3s;
+
+        }
+
+        .sidenav a:hover {
+            color: #faf8f8;
+        }
+
+        .sidenav .closebtn {
+            position: absolute;
+            top: 10;
+            right: 40px;
+            font-size: 36px;
+            margin-left: 50px;
+
+        }
+
+        .sidenav .closebtn:hover {
+            background: none;
+        }
+
+        #main2 {
+            transition: margin-left .5s;
+            padding: 16px;
+        }
+
+
+        .dropbtn {
+
+            left: 1080px;
+            color: black;
+            top: 20px;
+            font-size: 25px;
+            position: fixed;
+            background: none;
+            color: white;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+
+            position: fixed;
+            background-color: #181818;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(12, 12, 12, 0.2);
+            z-index: 1;
+            left: 180px;
+            top: 90px;
+
+        }
+
+        .dropdown-content a {
+            color: rgb(255, 255, 255);
+            padding: 12px 16px;
+            text-decoration: none;
+            display: none;
+        }
+
+        .dropdown-content a:hover {
+            background-color: rgb(50, 50, 50);
+            color: darkorange;
+
+        }
+
+        .dropdown-content a.dropbtn:hover {
+            color: darkorange;
+
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: none;
+
+        }
+
+        .dropbtn:hover {
+            color: darkorange;
+        }
+
+
+        .icon-dark {
+            position: fixed;
+            top: 35px;
+            width: 30px;
+            height: 30px;
+            right: 100px;
+            color: white;
+            background-color: #000;
+            border-color: #000;
+            border-radius: 50%;
+
+        }
+
+
+        .icon-light {
+            position: fixed;
+            top: 35px;
+            width: 30px;
+            height: 30px;
+            right: 100px;
+            color: white;
+            background-color: #000;
+            display: none;
+            border-radius: 50%;
+
+        }
+
+
+
+
+
+        @media all and (max-width:400px) {
+
+            body {
+                background-color: #ffffff;
+            }
+
+            .profile {
+                width: 400px;
+                height: 420px;
+                top: 370px;
+                left: 0;
+                right: 0;
+                position: absolute;
+            }
+
+            .image {
+
+                width: 100%;
+                height: 102%;
+                position: absolute;
+                background-color: #000;
+                background-position: center;
+                left: 0;
+                right: 0;
+
+
+            }
+
+            .img1 {
+                position: fixed;
+                width: 25%;
+                height: 5%;
+                left: 7%;
+                top: 50px;
+                display: none;
+
+            }
+
+            .img2 {
+                position: fixed;
+                width: 13%;
+                height: 8%;
+                left: 13%;
+                top: 30px;
+                display: inline-block;
+            }
+
+
+
+            .maincater {
+                width: 200px;
+                height: 300px;
+
+            }
+
+            .me-profile {
+                width: 370px;
+                height: 400px;
+                background-color: rgb(216, 216, 216);
+                position: absolute;
+                top: 900px;
+                left: 5px;
+                border-style: double;
+                border-color: #000;
+            }
+
+
+            nav {
+                display: none;
+            }
+
+
+
+            .dropbtn {
+
+                left: 280px;
+                color: black;
+                top: 29px;
+                font-size: 15px;
+
+            }
+
+            .dropdown {
+                position: relative;
+                display: inline-block;
+            }
+
+            .dropdown-content {
+
+                position: fixed;
+                background-color: #181818;
+                min-width: 160px;
+                box-shadow: 0px 8px 16px 0px rgba(12, 12, 12, 0.2);
+                z-index: 1;
+                left: 180px;
+                top: 90px;
+
+            }
+
+            .dropdown-content a {
+                color: rgb(255, 255, 255);
+                padding: 12px 16px;
+                text-decoration: none;
+                display: none;
+            }
+
+            .dropdown-content a:hover {
+                background-color: rgb(50, 50, 50);
+                color: darkorange;
+
+            }
+
+            .dropdown-content a.dropbtn:hover {
+                color: darkorange;
+
+            }
+
+            .dropdown:hover .dropdown-content {
+                display: none;
+
+            }
+
+            .dropbtn:hover {
+                color: darkorange;
+            }
+
+            .sidenav {
+                padding-top: 15px;
+                height: 100%;
+                width: 0;
+                position: fixed;
+                z-index: 1;
+                top: 0;
+                right: 0px;
+                background-color: rgb(0, 0, 0);
+                overflow-x: hidden;
+                display: block;
+                transition: 0.5s;
+
+
+            }
+
+            .sidenav a {
+                font-size: 18px;
+                padding: 8px 8px 8px 32px;
+                text-decoration: none;
+                color: #ffffff;
+                display: block;
+                transition: 0.3s;
+
+
+            }
+
+            .icon11 {
+                position: fixed;
+                top: 30px;
+                right: 35px;
+                color: #ffffff;
+                display: block;
+            }
+
+
+            .sidenav a:hover {
+                color: darkorange;
+                background-color: rgb(43, 42, 42);
+            }
+
+            .sidenav .closebtn {
+                position: absolute;
+                top: 5;
+                right: 5px;
+                font-size: 36px;
+                margin-left: 50px;
+                color: whitesmoke;
+                width: 50px;
+                height: 50px;
+            }
+
+            #main2 {
+                transition: margin-left .5s;
+                padding: 16px;
+            }
+
+            .navba {
+                width: 1366px;
+                height: 100px;
+                background-color: rgb(7, 7, 7);
+                position: fixed;
+                left: 0;
+                top: 0;
+            }
+
+
+            .head {
+                position: absolute;
+                top: 260px;
+                left: 130px;
+                font-family: monospace;
+                font-size: 30px;
+                letter-spacing: 10px;
+                font-weight: bold;
+            }
+
+            .me {
+                position: absolute;
+                top: 50px;
+                left: 50px;
+                font-size: 20px;
+            }
+
+            .head2 {
+                display: none;
+            }
+
+            .head3 {
+                position: absolute;
+                top: 1000px;
+                left: 480px;
+                font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+                letter-spacing: 2px;
+                font-size: 22px;
+                display: none;
+            }
+
+            .web {
+                position: absolute;
+                top: 0px;
+                left: 50px;
+                font-size: 20px;
+            }
+
+            .web-profile {
+                width: 370px;
+                height: 400px;
+                background-color: rgb(216, 216, 216);
+                position: absolute;
+                top: 1410px;
+                left: 5px;
+                border-style: double;
+                border-color: #000;
+            }
+
+        }
+
+
+
+    </style>
+
+</head>
+
+<body>
+
+
+    <h1 class="head"><ins>About</h1></ins>
+
+
+    <img class="profile" src="C:\Users\User\Desktop\knowledgepics\ums\img\3a150244-8897-4024-ae12-350cf0d0354c.jfif"
+        alt="">
+    <h2 class="head2">About Me</h2>
+
+    <div class="me-profile">
+        <p class="me">Hey,I am Menula Dilneth. I am a Web Developer. <br> With 2 Year Of Expierience.I Just a teenager I
+            <br> am 15 years old.I Studiesd at nalanda college <br> colombo 10.
+        </p>
+
+    </div>
+
+    <div class="web-profile">
+        <h1 class="head3">About Website</h1>
+
+        <p class="web">In this website yo can learn many Interesting things <br> about some countries,palces,nature,
+            Interesting ccreatures <br> in the world and beautifull photography ideas you also an do.</p>
+    </div>
+    <header>
+
+        <div class="navba">
+            <div class="img1">
+                <img class="img1" onclick="location.href='index.html'"
+                    src="C:\Users\User\Desktop\knowledgepics\ums\img\bla2.png">
+            </div>
+
+            <div class="img2" target="_blank">
+                <img class="img2" onclick="location.href='index.html'"
+                    src="C:\Users\User\Desktop\knowledgepics\ums\img\bla24.png">
+            </div>
+
+
+            <nav>
+                <a class="hm" onclick="location.href='index.html'">Home</a>
+                <a class="ab" onclick="location.href='about.html'">About</a>
+
+
+
+                <img src="https://collection.cdn-pictorem.com/collection/thumb250/600_rizu_designs_CrescentMoon-01.jpg"
+                alt="" class="icon-dark">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiMk7Su7VzZMCbk0hJqv3YWsfvr18BC3JUAWdUjftSw23iv7LlpXDQomnDpTLkRLcLT_8&usqp=CAU"
+                alt="" class="icon-light">
+
+            </nav>
+
+
+
+
+
+        </div>
+
+        <div class="dropdown">
+            <button class="dropbtn">|||</button>
+            <div class="dropdown-content">
+                <a href="sl-wild.html" target="_blank"> Wild</a>
+                <a href="places.html" target="_blank"> Places</a>
+                <a href="creatures.html" target="_blank"> Creatures</a>
+
+            </div>
+
+
+
+            <div id="mySidenav" class="sidenav">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <a href="#"></a>
+                <a href="#"></a>
+                <a href="#"></a>
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="countries.html">Wild</a>
+                <a href="places.html">Places</a>
+                <a href="creatures.html">Creatures</a>
+
+            </div>
+
+            <div id="main2">
+
+                <span class="icon11" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; </span>
+            </div>
+            <script>
+                function openNav() {
+                    document.getElementById("mySidenav").style.width = "250px";
+                    document.getElementById("main").style.marginLeft = "250px";
+                }
+
+                function closeNav() {
+                    document.getElementById("mySidenav").style.width = "0";
+                    document.getElementById("main").style.marginLeft = "0";
+                }
+
+            </script>
+
+
+<script>
+    $(".icon-dark").click(function (params) {
+        $("body").css("background-color", " black");
+        $(".icon-dark").hide();
+        $(".icon-light").show()
+        $("h2").css("color", "white");
+        $("p").css({ "color": "white", "font-family": "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif","font-size":"16px" });
+    })
+
+    $(".icon-light").click(function (params) {
+        $("body").css("background-color", "white");
+        $(".icon-dark").show();
+        $(".icon-light").hide();
+        $("h2").css("color", "black");
+        $("p").css("color", "black");
+
+        $(".thanks").css("color", "black");
+    })
+</script>
+
+
+</body>
+
+</html>
